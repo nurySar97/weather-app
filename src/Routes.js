@@ -1,13 +1,14 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/home";
-import NotFound from "./pages/notFound";
+
+import HomePage from "./pages/HomePage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 export default function routes() {
   return (
     <Routes>
-      <Route index element={<Home />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="*" element={<NotFound />} />
+      <Route index element={<HomePage />} />
+      <Route path="/home" element={<HomePage />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }
