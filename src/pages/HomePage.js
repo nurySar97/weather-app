@@ -1,6 +1,9 @@
 import React from "react";
+import { useStore } from "../hook";
 
 const HomePage = () => {
+  const { searchValue, setSearchValue, onSearchSubmit } = useStore();
+
   return (
     <section>
       <div className="container">
@@ -10,18 +13,22 @@ const HomePage = () => {
 
         <div className="row justify-content-center">
           <div className="col col-lg-8">
-            <div className="input-group mb-3">
-              <span className="input-group-text" id="basic-addon1">
-                &#x1F50E;
-              </span>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Search city..."
-                aria-label="City"
-                aria-describedby="basic-addon1"
-              />
-            </div>
+            <form onSubmit={onSearchSubmit}>
+              <div className="input-group mb-3">
+                <input
+                  onChange={(e) => setSearchValue(e.target.value)}
+                  value={searchValue}
+                  type="text"
+                  className="form-control"
+                  placeholder="Search city..."
+                  aria-label="City"
+                  aria-describedby="basic-addon1"
+                />
+                <button className="input-group-text" type="submit">
+                  &#x1F50E;
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
