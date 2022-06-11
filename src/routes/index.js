@@ -12,7 +12,7 @@ export default function MainRoutes() {
         <Route index element={<HomePage />} />
       </Route>
 
-      <Route path="/weather/:city" element={<WeatherPage />} />
+      <Route path="/weather" element={<WeatherPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );

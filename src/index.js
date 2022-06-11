@@ -17,3 +17,8 @@ root.render(
     </BrowserRouter>
   </React.StrictMode>
 );
+
+// const weather = {
+//   cloudy: "https: klkfdskfl",
+//   cold: "https: ",
+// }

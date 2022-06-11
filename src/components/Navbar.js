@@ -8,6 +8,10 @@ const NavbarComponent = () => {
 
   const toggle = () => setIsOpen((prev) => !prev);
 
+  const onItemClick = (region) => {
+    console.log(region);
+  };
+
   return (
     <Navbar color="secondary" expand="sm">
       <Link className="navbar-brand text-light" to="/">
@@ -18,9 +22,12 @@ const NavbarComponent = () => {
         <Nav className="ml-auto" navbar>
           {regions.map((region, index) => (
             <NavItem key={index}>
-              <Link className="nav-link text-light" to={`/weather/${region}`}>
+              <div
+                className="nav-link text-light"
+                onClick={() => onItemClick(region)}
+              >
                 {region}
-              </Link>
+              </div>
             </NavItem>
           ))}
         </Nav>
