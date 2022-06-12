@@ -18,9 +18,9 @@ export const NavbarComponent = () => {
   };
 
   return (
-    <Navbar color="secondary" expand="sm">
+    <Navbar className="main-bg" color="secondary" expand="sm">
       <Link className="navbar-brand text-light" to="/">
-        reactstrap
+        TKM Weather
       </Link>
       <NavbarToggler onClick={toggle} />
       <Collapse className="justify-content-end" isOpen={isOpen} navbar>

@@ -32,3 +32,7 @@ body {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.main-bg {
+  background-color: #05051d91 !important;
+}

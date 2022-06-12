@@ -28,7 +28,7 @@ export const Regions = () => {
               key={region}
               onClick={() => onItemClick(region)}
             >
-              <div className="card">
+              <div className="card main-bg border-0">
                 <div className="card-body p-1">
                   <ImageComponent
                     url={Images[region]}
@@ -36,7 +36,7 @@ export const Regions = () => {
                     alt={region}
                     className={styles["card-image"]}
                   />
-                  <div className="p-3">
+                  <div className="p-3 text-light">
                     <h5 className="card-title fw-bold fs-4">
                       {region}
                       <span className="ms-3">
