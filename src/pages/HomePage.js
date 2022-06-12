@@ -1,7 +1,9 @@
+import { Regions } from "@src/components";
 import { useStore } from "@src/hooks";
 
 export const HomePage = () => {
-  const { searchValue, setSearchValue, onSearchSubmit } = useStore();
+  const { searchValue, setSearchValue, onSearchSubmit, isSearching } =
+    useStore();
 
   return (
     <section>
@@ -24,12 +26,22 @@ export const HomePage = () => {
                   aria-describedby="basic-addon1"
                 />
                 <button className="input-group-text" type="submit">
-                  &#x1F50E;
+                  {isSearching ? (
+                    <div
+                      className="spinner-border spinner-border-sm"
+                      role="status"
+                    >
+                      <span className="visually-hidden">Loading...</span>
+                    </div>
+                  ) : (
+                    <>&#x1F50E;</>
+                  )}
                 </button>
               </div>
             </form>
           </div>
         </div>
+        <Regions />
       </div>
       ;
     </section>

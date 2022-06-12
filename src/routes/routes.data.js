@@ -1,1 +1,8 @@
-export const regions = ["Ahal", "Mary", "Lebap", "Balkan", "Dashoguz"];
+export const regions = [
+  "Ashgabat",
+  "Ahal",
+  "Mary",
+  "Lebap",
+  "Balkan",
+  "Dashoguz",
+];
