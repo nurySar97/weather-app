@@ -1,13 +1,13 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { regions } from "../routes/routes.data";
+import { regions } from "@src/routes";
 
 export const storeContext = createContext(null);
 
 export function StoreProvider({ children }) {
   const navigate = useNavigate();
-  const [searchValue, setSearchValue] = useState("");
   const [weathers, setWeathers] = useState({});
+  const [searchValue, setSearchValue] = useState("");
   const [currentWeather, setCurrentWeather] = useState({});
 
   const onSearchSubmit = async (event) => {
@@ -15,12 +15,17 @@ export function StoreProvider({ children }) {
     try {
       const url = `${process.env.REACT_APP_BASE_URL}weather?q=${searchValue}&units=metric&APPID=${process.env.REACT_APP_KEY}`;
       const response = await fetch(url);
-      const data = await response.json();
-      setCurrentWeather(data);
-      setSearchValue("");
-      navigate("/weather");
-    } catch (e) {
-      console.error(e);
+
+      if (response.ok) {
+        const data = await response.json();
+        setCurrentWeather(data);
+        setSearchValue("");
+        return navigate("/weather");
+      }
+
+      throw new Error(response.statusText);
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -46,6 +51,7 @@ export function StoreProvider({ children }) {
         setSearchValue,
         weathers,
         currentWeather,
+        setCurrentWeather,
       }}
     >
       {children}

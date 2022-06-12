@@ -1,18 +1,15 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
-
-import Navbar from "../components/Navbar";
 import styles from "./style.module.css";
 
-const MainLayout = () => {
+import { Outlet } from "react-router-dom";
+import { NavbarComponent } from "@src/components";
+
+export const MainLayout = () => {
   return (
     <main className={styles.main}>
-      <Navbar />
+      <NavbarComponent />
       <div className={styles.content}>
         <Outlet />
       </div>
     </main>
   );
 };
-
-export default MainLayout;

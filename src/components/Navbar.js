@@ -1,15 +1,20 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
-import { regions } from "../routes/routes.data";
+import { useStore } from "@src/hooks";
+import { regions } from "@src/routes";
 
-const NavbarComponent = () => {
+export const NavbarComponent = () => {
+  const navigate = useNavigate();
+  const { setCurrentWeather, weathers } = useStore();
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen((prev) => !prev);
 
   const onItemClick = (region) => {
-    console.log(region);
+    setCurrentWeather(weathers[region]);
+    navigate("/weather");
   };
 
   return (
@@ -23,7 +28,7 @@ const NavbarComponent = () => {
           {regions.map((region, index) => (
             <NavItem key={index}>
               <div
-                className="nav-link text-light"
+                className="nav-link text-light cursor-pointer"
                 onClick={() => onItemClick(region)}
               >
                 {region}
@@ -35,5 +40,3 @@ const NavbarComponent = () => {
     </Navbar>
   );
 };
-
-export default NavbarComponent;

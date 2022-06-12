@@ -1,7 +1,6 @@
-import React from "react";
-import { useStore } from "../hook";
+import { useStore } from "@src/hooks";
 
-const HomePage = () => {
+export const HomePage = () => {
   const { searchValue, setSearchValue, onSearchSubmit } = useStore();
 
   return (
@@ -36,5 +35,3 @@ const HomePage = () => {
     </section>
   );
 };
-
-export default HomePage;

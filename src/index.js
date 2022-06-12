@@ -1,24 +1,20 @@
-import "./global.css";
-import React from "react";
+import "@src/global.css";
+import { MainRoutes } from "@src/routes";
+
+import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
-import Routes from "./routes";
 import { BrowserRouter } from "react-router-dom";
 
-import { StoreProvider } from "./context";
+import { StoreProvider } from "@src/context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <React.StrictMode>
+  <StrictMode>
     <BrowserRouter>
       <StoreProvider>
-        <Routes />
+        <MainRoutes />
       </StoreProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  </StrictMode>
 );
-
-// const weather = {
-//   cloudy: "https: klkfdskfl",
-//   cold: "https: ",
-// }
