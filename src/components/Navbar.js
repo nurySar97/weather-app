@@ -6,7 +6,7 @@ import { regions } from "@src/routes";
 
 export const NavbarComponent = () => {
   const navigate = useNavigate();
-  const { setCurrentWeather, weathers } = useStore();
+  const { setCurrentWeather, currentWeather, weathers } = useStore();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -28,7 +28,9 @@ export const NavbarComponent = () => {
           {regions.map((region, index) => (
             <NavItem key={index}>
               <div
-                className="nav-link text-light cursor-pointer"
+                className={`nav-link text-light cursor-pointer ${
+                  currentWeather.name === region ? "fw-bold" : ""
+                }`}
                 onClick={() => onItemClick(region)}
               >
                 {region}

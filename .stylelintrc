@@ -1,25 +1,17 @@
 {
-    "extends": [
-        "stylelint-config-standard",
-        "stylelint-order-config-standard"
-    ],
-    "plugins": [
-        "stylelint-order"
-    ],
-    "rules": {
-        "indentation": [
-            "tab"
-        ],
-        "color-hex-case": "upper",
-        "max-line-length": 20000,
-        "selector-class-pattern": "^.*$",
-        "declaration-block-no-redundant-longhand-properties": [
-            true,
-            {
-                "ignoreShorthands": [
-                    "/grid/"
-                ]
-            }
-        ]
-    }
+  "extends": ["stylelint-config-standard", "stylelint-order-config-standard"],
+  "plugins": ["stylelint-order"],
+  "ignoreFiles": ["build/**/*.css"],
+  "rules": {
+    "indentation": ["tab"],
+    "color-hex-case": "upper",
+    "max-line-length": 20000,
+    "selector-class-pattern": "^.*$",
+    "declaration-block-no-redundant-longhand-properties": [
+      true,
+      {
+        "ignoreShorthands": ["/grid/"]
+      }
+    ]
+  }
 }

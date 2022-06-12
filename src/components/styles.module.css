@@ -1,15 +1,17 @@
 .preloader {
-  position: relative;
-  width: 100%;
+	position: relative;
+
+	width: 100%;
 }
 
 .preloader__inner {
-  width: 100%;
-  height: 100%;
-  padding-top: 60%;
-  background-color: #bbadadce;
+	width: 100%;
+	height: 100%;
+	padding-top: 60%;
+
+	background-color: #BBADADCE;
 }
 
 .card-image {
-  width: 100%;
+	width: 100%;
 }

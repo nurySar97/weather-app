@@ -1,4 +1,6 @@
 import "@src/global.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import { MainRoutes } from "@src/routes";
 
 import { StrictMode } from "react";
