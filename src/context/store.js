@@ -2,6 +2,13 @@ import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { regions } from "@src/routes";
 
+import toast from "react-hot-toast";
+
+const notify = (message) =>
+  toast.error(message, {
+    duration: 3000,
+  });
+
 export const storeContext = createContext(null);
 
 export function StoreProvider({ children }) {
@@ -23,7 +30,8 @@ export function StoreProvider({ children }) {
         return navigate("/weather");
       }
 
-      throw new Error(response.statusText);
+      setSearchValue("");
+      notify(searchValue + " " + response.statusText);
     } catch (error) {
       console.error(error);
     }

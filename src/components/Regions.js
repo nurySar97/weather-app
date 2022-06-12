@@ -2,9 +2,17 @@ import { useStore } from "@src/hooks";
 import { Preloader, ImageComponent } from "@src/components";
 import { Images } from "@src/assets/images";
 import styles from "./styles.module.css";
+import { useNavigate } from "react-router-dom";
 
 export const Regions = () => {
-  const { weathers } = useStore();
+  const { setCurrentWeather, weathers } = useStore();
+  const navigate = useNavigate();
+
+  const onItemClick = (region) => {
+    setCurrentWeather(weathers[region]);
+    navigate("/weather");
+  };
+
   return (
     <div className="row justify-content-center gap-1">
       {Object.keys(weathers).map((region) => {
@@ -13,6 +21,7 @@ export const Regions = () => {
           <div
             className="col-xxl-3 col-xl-3 col-lg-4 col-md-5 col-sm-6 cursor-pointer"
             key={region}
+            onClick={() => onItemClick(region)}
           >
             <div className="card">
               <div className="card-body p-1">
