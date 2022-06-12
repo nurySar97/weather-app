@@ -8,6 +8,7 @@ export const Regions = () => {
   return (
     <div className="row justify-content-center gap-1">
       {Object.keys(weathers).map((region) => {
+        const currentRegionWeather = weathers[region];
         return (
           <div
             className="col-xxl-3 col-xl-3 col-lg-4 col-md-5 col-sm-6 cursor-pointer"
@@ -21,7 +22,17 @@ export const Regions = () => {
                   alt={region}
                   className={styles["card-image"]}
                 />
-                <h5 className="card-title">{region}</h5>
+                <div className="p-3">
+                  <h5 className="card-title fw-bold fs-4">
+                    {region}
+                    <span className="ms-3">
+                      {currentRegionWeather.main.temp} &#x2103;
+                    </span>
+                  </h5>
+                  <p className="text-capitalize fst-italic fs-5">
+                    {currentRegionWeather.weather[0].description}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
