@@ -8,11 +8,7 @@ export const HomePage = () => {
   return (
     <section>
       <div className="container">
-        <h1 className="text-light text-center pt-4 pb-4 fw-bold">
-          Wheater Anywhere!
-        </h1>
-
-        <div className="row justify-content-center">
+        <div className="row justify-content-center mt-5">
           <div className="col col-lg-8">
             <form onSubmit={onSearchSubmit}>
               <div className="input-group mb-3">

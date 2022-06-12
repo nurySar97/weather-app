@@ -11,9 +11,12 @@ const notify = (message) =>
 
 export const storeContext = createContext(null);
 
+const sleep = (time = 1000) => new Promise((r) => setTimeout(r, time));
+
 export function StoreProvider({ children }) {
   const navigate = useNavigate();
   const [weathers, setWeathers] = useState({});
+  const [isFetching, seIsFetching] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [currentWeather, setCurrentWeather] = useState({});
 
@@ -25,8 +28,10 @@ export function StoreProvider({ children }) {
 
       if (response.ok) {
         const data = await response.json();
+
         setCurrentWeather(data);
         setSearchValue("");
+
         return navigate("/weather");
       }
 
@@ -41,6 +46,8 @@ export function StoreProvider({ children }) {
     const regions_weather = {};
 
     (async function () {
+      seIsFetching(true);
+
       for await (let region of regions) {
         const url = `${process.env.REACT_APP_BASE_URL}weather?q=${region}&units=metric&APPID=${process.env.REACT_APP_KEY}`;
         const response = await fetch(url);
@@ -48,6 +55,8 @@ export function StoreProvider({ children }) {
         regions_weather[region] = data;
       }
       setWeathers(regions_weather);
+      await sleep(500);
+      seIsFetching(false);
     })();
   }, []);
 
@@ -60,6 +69,7 @@ export function StoreProvider({ children }) {
         weathers,
         currentWeather,
         setCurrentWeather,
+        isFetching,
       }}
     >
       {children}
