@@ -12,9 +12,7 @@ export const WeatherPage = () => {
   return (
     <div className={styles.weather}>
       <Link to={"/"}>
-        <button className="btn btn-light mb-3">
-          <span>&#129040;</span> Back
-        </button>
+        <button className="btn btn-light mb-3">Back</button>
       </Link>
       <div className="row justify-content-center">
         <div className="col col-xxl-6 col-lg-8">

@@ -39,7 +39,6 @@ export const HomePage = () => {
         </div>
         <Regions />
       </div>
-      ;
     </section>
   );
 };
