@@ -37,31 +37,31 @@ export const WeatherPage = () => {
               </div>
 
               <div className="row mt-3 fs-3 fw-light">
-                <div className="col-6 fs-5 mb-3">
+                <div className="col-12 fs-5 mb-3 col-xxl-6 col-lg-6 col-md-6 col-sm-6">
                   <span className="fs-5 fw-bold me-2">Feels like:</span>
                   <span>{currentWeather.main.feels_like} ℃ </span>
                 </div>
-                <div className="col-6 fs-5 mb-3">
+                <div className="col-12 fs-5 mb-3 col-xxl-6 col-lg-6 col-md-6 col-sm-6">
                   <span className="fs-5 fw-bold me-2">Pressure:</span>
                   <span>{currentWeather.main.pressure} hPa </span>
                 </div>
 
-                <div className="col-6 fs-5 mb-3">
+                <div className="col-12 fs-5 mb-3 col-xxl-6 col-lg-6 col-md-6 col-sm-6">
                   <span className="fs-5 fw-bold me-2">Max Temperature: </span>
                   <span>{currentWeather.main.temp_max} ℃ </span>
                 </div>
 
-                <div className="col-6 fs-5 mb-3">
+                <div className="col-12 fs-5 mb-3 col-xxl-6 col-lg-6 col-md-6 col-sm-6">
                   <span className="fw-bold me-2">Min Temperature:</span>
                   <span>{currentWeather.main.temp_min} ℃ </span>
                 </div>
 
-                <div className="col-6 fs-5 mb-3">
+                <div className="col-12 fs-5 mb-3 col-xxl-6 col-lg-6 col-md-6 col-sm-6">
                   <span className="fs-5 fw-bold me-2">Humidity:</span>
                   <span>{currentWeather.main.humidity} % </span>
                 </div>
 
-                <div className="col-6 fs-5 mb-3">
+                <div className="col-12 fs-5 mb-3 col-xxl-6 col-lg-6 col-md-6 col-sm-6">
                   <span className="fw-bold me-2">Wind:</span>
                   <span>{currentWeather.wind.speed} m/s </span>
                 </div>
